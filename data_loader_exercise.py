@@ -47,12 +47,12 @@ class Model(torch.nn.Module):
         self.l2 = torch.nn.Linear(512, 512)
         self.l3 = torch.nn.Linear(512, 1)
 
-        self.lelu = torch.nn.ReLU()
+        self.relu = torch.nn.ReLU()
 
     def forward(self, x):
-        out1 = self.lelu(self.l1(x))
-        out2 = self.lelu(self.l2(out1))
-        y_pred = self.lelu(self.l3(out2))
+        out1 = self.relu(self.l1(x))
+        out2 = self.relu(self.l2(out1))
+        y_pred = self.relu(self.l3(out2))
         return y_pred
 
 
